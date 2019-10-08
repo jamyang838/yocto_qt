@@ -33,3 +33,10 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 
 DISTFILES += \
     ../Pictures/a.jpg
+
+win32:CONFIG(release, debug|release): LIBS += -L$$PWD/../../../opt/example-distro/sdkversion/sysroots/cortexa7hf-neon-vfpv4-poky-linux-gnueabi/usr/lib/release/ -lwiringPi
+else:win32:CONFIG(debug, debug|release): LIBS += -L$$PWD/../../../opt/example-distro/sdkversion/sysroots/cortexa7hf-neon-vfpv4-poky-linux-gnueabi/usr/lib/debug/ -lwiringPi
+else:unix:!macx: LIBS += -L$$PWD/../../../opt/example-distro/sdkversion/sysroots/cortexa7hf-neon-vfpv4-poky-linux-gnueabi/usr/lib/ -lwiringPi
+
+INCLUDEPATH += $$PWD/../../../opt/example-distro/sdkversion/sysroots/cortexa7hf-neon-vfpv4-poky-linux-gnueabi/usr/include
+DEPENDPATH += $$PWD/../../../opt/example-distro/sdkversion/sysroots/cortexa7hf-neon-vfpv4-poky-linux-gnueabi/usr/include

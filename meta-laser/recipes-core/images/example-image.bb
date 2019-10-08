@@ -25,8 +25,8 @@ IMAGE_INSTALL += "i2c-tools"
 IMAGE_INSTALL += "vim"
 
 #install package manage
-EXTRA_IMAGE_FEATURES += "package-management"
-PACKAGE_CLASSES = "package_deb"
+#EXTRA_IMAGE_FEATURES += "package-management"
+#PACKAGE_CLASSES = "package_deb"
 #PACKAGE_CLASSES = "package_rpm"
 
 IMAGE_FSTYPE = "rpi-sdimg"
@@ -45,7 +45,6 @@ RM_OLD_IMAGE = "1"
 
 # Add support for wifi and bluetooth
 IMAGE_INSTALL += "linux-firmware linux-firmware-bcm43430"
-
 # Use Network Manager
 IMAGE_INSTALL += "networkmanager networkmanager-bash-completion networkmanager-nmtui ncurses"
 
@@ -54,3 +53,6 @@ IMAGE_INSTALL += "cinematicexperience"
 
 #install QT module
 IMAGE_INSTALL += "qtquickcontrols qtquickcontrols2 qtserialport"
+
+#install wiringpi
+IMAGE_INSTALL += "wiringpi"

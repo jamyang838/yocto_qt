@@ -1,25 +1,31 @@
 #include <QGuiApplication>
 #include <QQmlApplicationEngine>
-#include <QSerialPort>
-#include <QSerialPortInfo>
-#include <QElapsedTimer>
+//#include <QSerialPort>
+//#include <QSerialPortInfo>
+#include <wiringPi.h>
 //#include <QtDebug>
-
+#define PIFACE  200
+#define LED     (PIFACE+2)
 
 int main(int argc, char *argv[])
 {
-    QElapsedTimer timer;
-
-
     qputenv("QT_IM_MODULE", QByteArray("qtvirtualkeyboard"));
 
     QCoreApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
 
     QGuiApplication app(argc, argv);
-    //**************************
-    QList<QSerialPortInfo> ports = QSerialPortInfo::availablePorts();
-    QString sss = ports[1].portName();
 
+    //**************************
+    wiringPiSetup() ;
+    pinMode (0, OUTPUT) ;
+    for (;;)
+    {
+        digitalWrite (0, HIGH) ; delay (500) ;
+        digitalWrite (0,  LOW) ; delay (500) ;
+    }
+    //**************************
+    /* Serial Port
+    QList<QSerialPortInfo> ports = QSerialPortInfo::availablePorts();
     QSerialPort port;
     port.setPort(ports[1]);
     port.open(QIODevice::ReadWrite);
@@ -41,7 +47,7 @@ int main(int argc, char *argv[])
             //port.waitForReadyRead(100);
             }
     port.close();
-
+*/
 //**************************
     QQmlApplicationEngine engine;
     const QUrl url(QStringLiteral("qrc:/main.qml"));
