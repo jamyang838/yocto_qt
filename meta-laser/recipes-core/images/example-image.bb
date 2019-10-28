@@ -52,7 +52,7 @@ IMAGE_INSTALL += "networkmanager networkmanager-bash-completion networkmanager-n
 IMAGE_INSTALL += "cinematicexperience"
 
 #install QT module
-IMAGE_INSTALL += "qtquickcontrols qtquickcontrols2 qtserialport"
+IMAGE_INSTALL += "qtquickcontrols qtquickcontrols2 qtserialport qtvirtualkeyboard"
 
 #install wiringpi
 IMAGE_INSTALL += "wiringpi"
